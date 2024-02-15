@@ -1,25 +1,23 @@
 
-public class bubbleSort {
+public class insertionSort {
 
 	public static void main(String[] args) {
 		int nums[] = {6,5,2,8,9,4};
-		int temp = 0;
 		System.out.println("Before Sorting");
 		for(int num: nums)
 		{
 			System.out.print(num+" ");
 		}
-		for(int i=0;i<nums.length;i++)
+		for(int i=1;i<nums.length;i++)
 		{
-			for(int j=0;j<nums.length-i-1;j++)
+			int key = nums[i];
+			int j = i-1;
+			while(j>=0 && nums[j]>key)
 			{
-				if(nums[j]>nums[j+1])
-				{
-					temp = nums[j];
-					nums[j] = nums[j+1];
-					nums[j+1] = temp;
-				}
+				nums[j+1] = nums[j];
+				j--;
 			}
+			nums[j+1] = key;  
 		}
 		System.out.println();
 		System.out.println("After Sorting");
